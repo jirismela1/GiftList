@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "female-office-worker_1f469-200d-1f4bc.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "female-office-worker_1f469-200d-1f4bc@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "female-office-worker_1f469-200d-1f4bc@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

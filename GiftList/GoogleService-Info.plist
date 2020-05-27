@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>282511342901-ebj1m43g8k7i58ihqrpaat4cne9pafkf.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.282511342901-ebj1m43g8k7i58ihqrpaat4cne9pafkf</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCEiEj7cbv4eg2hr6fXoUpOcPsusYmaKow</string>
+	<key>GCM_SENDER_ID</key>
+	<string>282511342901</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.JirkaSmela.GiftList</string>
+	<key>PROJECT_ID</key>
+	<string>giftlist-72316</string>
+	<key>STORAGE_BUCKET</key>
+	<string>giftlist-72316.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:282511342901:ios:dd420c9fac62ed170ba07c</string>
+	<key>DATABASE_URL</key>
+	<string>https://giftlist-72316.firebaseio.com</string>
+</dict>
+</plist>

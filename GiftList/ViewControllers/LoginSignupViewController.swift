@@ -18,7 +18,6 @@ class LoginSignupViewController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     
     
-    
     @IBAction func loginSignupButtonAction(_ sender: UIButton) {
         
         if let name = nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines){
@@ -29,7 +28,6 @@ class LoginSignupViewController: UIViewController {
                         self.errorLabel.text = error.localizedDescription.contains("connection") ?
                             "Oops, your connection seems off.." : "That name is already being used, try different"
                         self.errorLabel.isHidden = false
-                        print(error.localizedDescription)
                     }else{
                         self.showHomeScreen(name)
                     }
@@ -40,8 +38,6 @@ class LoginSignupViewController: UIViewController {
                         self.errorLabel.text = error.localizedDescription.contains("connection") ?
                         "Oops, your connection seems off.." : "Wrong login name"
                         self.errorLabel.isHidden = false
-                        print(error.localizedDescription)
-                        
                     }else{
                         self.showHomeScreen(name)
                     }
@@ -52,6 +48,7 @@ class LoginSignupViewController: UIViewController {
         view.endEditing(true)
     }
     
+    
     @IBAction func loginSignupActionSegment(_ sender: UISegmentedControl) {
         if loginSignupSegment.selectedSegmentIndex == 1{
             loginSignupButton.setTitle(loginSignupSegment.titleForSegment(at: 1), for: .normal)
@@ -59,23 +56,18 @@ class LoginSignupViewController: UIViewController {
             loginSignupButton.setTitle(loginSignupSegment.titleForSegment(at: 0), for: .normal)
         }
         
-        textFieldDidBeginEditing(nameTextField)
+        textFieldDidBeginEditing(nameTextField,false)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         nameTextField.delegate = self
-        loginSignupSegment.selectedSegmentIndex = 0
-        loginSignupButton.setTitle(loginSignupSegment.titleForSegment(at: 0), for: .normal)
-        errorLabel.isHidden = true
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        errorLabel.isHidden = true  // delete
-        errorLabel.text = ""        // delete
-//        nameTextField.text = ""   // delete
-//        textFieldDidBeginEditing(nameTextField)
-        loginSignupSegment.selectedSegmentIndex = 0
-        loginSignupButton.setTitle(loginSignupSegment.titleForSegment(at: 0), for: .normal)
+        super.viewWillAppear(animated)
+        textFieldDidBeginEditing(nameTextField)
+        
     }
     
     private func showHomeScreen(_ name: String){
@@ -86,14 +78,18 @@ class LoginSignupViewController: UIViewController {
             present(controller, animated: false, completion: nil)
         }
     }
-   
 }
 
 extension LoginSignupViewController: UITextFieldDelegate{
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+    func textFieldDidBeginEditing(_ textField: UITextField,_ root: Bool = true) {
         errorLabel.isHidden = true
         errorLabel.text = ""
         nameTextField.text = ""
+        if root{
+            loginSignupButton.setTitle(loginSignupSegment.titleForSegment(at: 0), for: .normal)
+            loginSignupSegment.selectedSegmentIndex = 0
+        }
+        
     }
 }

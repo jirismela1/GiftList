@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "blonde-woman_1f471-200d-2640-fe0f.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "blonde-woman_1f471-200d-2640-fe0f@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "blonde-woman_1f471-200d-2640-fe0f@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

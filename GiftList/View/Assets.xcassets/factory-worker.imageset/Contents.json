@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "factory-worker_1f9d1-200d-1f3ed.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "factory-worker_1f9d1-200d-1f3ed@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "factory-worker_1f9d1-200d-1f3ed@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
