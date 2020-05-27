@@ -11,13 +11,13 @@ import FirebaseAuth
 
 class LoginSignupViewController: UIViewController {
 
-    
+    //MARK: - IBOulet
     @IBOutlet weak var loginSignupSegment: UISegmentedControl!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var loginSignupButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
     
-    
+    //MARK: - IBAction
     @IBAction func loginSignupButtonAction(_ sender: UIButton) {
         
         if let name = nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines){
@@ -44,7 +44,6 @@ class LoginSignupViewController: UIViewController {
                 }
             }
         }
-        
         view.endEditing(true)
     }
     
@@ -67,7 +66,6 @@ class LoginSignupViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         textFieldDidBeginEditing(nameTextField)
-        
     }
     
     private func showHomeScreen(_ name: String){
@@ -79,7 +77,7 @@ class LoginSignupViewController: UIViewController {
         }
     }
 }
-
+//MARK: - Extension UITextFieldDelgate
 extension LoginSignupViewController: UITextFieldDelegate{
     
     func textFieldDidBeginEditing(_ textField: UITextField,_ root: Bool = true) {

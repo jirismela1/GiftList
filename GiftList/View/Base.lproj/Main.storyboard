@@ -259,8 +259,8 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="nSc-hh-fBG" userLabel="PersonImage">
-                                <rect key="frame" x="107.66666666666669" y="47.666666666666671" width="160" height="157.33333333333334"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="nSc-hh-fBG" userLabel="PersonImage">
+                                <rect key="frame" x="107.66666666666669" y="47" width="160" height="158.66666666666669"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="160" id="6nn-Xd-lFY"/>
                                     <constraint firstAttribute="height" constant="160" id="QuM-HD-g2e"/>
@@ -919,6 +919,7 @@
         <image name="older-man" width="40" height="40"/>
         <image name="older-woman" width="40" height="40"/>
         <image name="person" catalog="system" width="128" height="117"/>
+        <image name="person.crop.circle" catalog="system" width="128" height="121"/>
         <image name="pig" width="40" height="40"/>
         <image name="pilot_" width="40" height="40"/>
         <image name="plus" catalog="system" width="128" height="113"/>
