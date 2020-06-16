@@ -8,13 +8,12 @@
 
 import UIKit
 import FirebaseAuth
-import FirebaseFirestoreSwift
 import FirebaseFirestore
+import FirebaseStorage
 
 class HomeSceenViewController: UIViewController {
 //MARK: - IBOutlet
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var undoneDoneSegment: UISegmentedControl!
 //MARK: - IBAction
     @IBAction func signOutAction(_ sender: UIBarButtonItem) {
         do{
@@ -22,133 +21,146 @@ class HomeSceenViewController: UIViewController {
         }catch let error{
             print(error)
         }
+//        ? popViewController and dismiss?
         navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)
     }
-    @IBAction func undoneDoneSegmentAction(_ sender: UISegmentedControl) {
-        tableView.reloadData()
-    }
     
-    @IBAction func addGift(_ sender: UIBarButtonItem) {
+    @IBAction func addNewGift(_ sender: UIBarButtonItem) {
         
     }
-    @IBAction func editGiftList(_ sender: UIBarButtonItem) {
-//        db.collection(collection).document("Gifts").collection("Undone").
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc2 = segue.destination as? AddNewGiftViewController, segue.identifier == "NewPerson"{
+            vc2.userName = userName
+        }
     }
     
+//    private var listener: ListenerRegistration!
+    
+    var userName = ""
+    
+    
     private var db: Firestore!
-    private var listener: ListenerRegistration!
-    var collection = String()
-    private var passDocumentsField = Person()
+    private var storage = Storage.storage().reference()
     
+    private var refUserCollection: CollectionReference!
+    private var personImage: StorageReference!
     
+    private var personList = [String]()
     
-    private var doneDocuments = [String]()
-    private var undoneDocuments = [String]()
 //MARK: - Views
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         db = Firestore.firestore()
+        
+        
+        refUserCollection = db.collection("users").document(userName).collection("Person")
+        personImage = storage.child("users/\(userName)")
+        
         tableView.delegate = self
         tableView.dataSource = self
-        
-        loadDocumentsFromCollection("Done")
-        loadDocumentsFromCollection("Undone")
-        undoneDoneSegment.selectedSegmentIndex = 0
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        listener = db.collection("sjan").document("task").addSnapshotListener { (documentSnapshor, error) in
-//            guard let document = documentSnapshor else{
-//                print("Error fetching document: \(error!)")
-//                return
-//            }
-//            guard let data = document.data() else {
-//                print("Document data was empty.")
-//                return
-//            }
-//            let source = document.metadata.hasPendingWrites ? "Local" : "Server"
-//            print("\(source), \(document.data() ?? [:])")
-//            print("Current data: \(data)")
-//        }
-//
-//    }
-//
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        listener.remove()
-//
-//    }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        loadDocumentsFromCollection()
+        
+    }
 }
 //MARK: - TableView - Delegate, DataSource
 extension HomeSceenViewController: UITableViewDelegate, UITableViewDataSource{
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return undoneDoneSegment.selectedSegmentIndex == 0 ? doneDocuments.count : undoneDocuments.count
+        return personList.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = undoneDoneSegment.selectedSegmentIndex == 0 ?  undoneDocuments[indexPath.row] : doneDocuments[indexPath.row]
+        cell.textLabel?.text = personList[indexPath.row]
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if undoneDoneSegment.selectedSegmentIndex == 0 {
-            loadFieldsFromDocuments("Undone",undoneDocuments[indexPath.row])
-        }else{
-            loadFieldsFromDocuments("Done",doneDocuments[indexPath.row])
-        }
+        downloadPersonProfileImage(selectedUserName: personList[indexPath.row])
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
 //MARK: - Extension Functions
 extension HomeSceenViewController {
-    private func loadDocumentsFromCollection(_ collectionPath: String){
-        db.collection(collection).document("Gifts").collection(collectionPath).getDocuments { (querySnapshot, error) in
+    private func loadDocumentsFromCollection(){
+        personList.removeAll()
+        refUserCollection.getDocuments { (querySnapshot, error) in
             if let error = error{
                 print("Error getting documents: \(error)")
             }else{
-                
                 for document in querySnapshot!.documents{
-                    self.appendDocumentToDocumentArray(collectionPath, document.documentID)
+                    self.personList.append(document.documentID)
                 }
                 self.tableView.reloadData()
             }
         }
     }
-    private func loadFieldsFromDocuments(_ collectionPath: String,_ documentPath: String){
-        db.collection(collection).document("Gifts").collection(collectionPath).document(documentPath).getDocument { (document, error) in
-            let result = Result {
-                try document?.data(as: Person.self)
+    private func loadTappedPerson(selectedUserName: String, imageData: Data){
+        
+        refUserCollection.document(selectedUserName).getDocument { (document, error) in
+            let result = Result{
+                try document?.data(as: UserProfile.self)
             }
             switch result{
-            case .success(let person):
-                if let person = person{
-                    self.passDocumentsField = Person(name: person.name, age: person.age, role: person.role)
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "List") as! GiftInfoViewController
-                    vc.documentsFields = self.passDocumentsField
+            case .success(let user):
+                if let user = user{
+                    let vc = self.storyboard?.instantiateViewController(identifier: "InfoGiftPerson") as! GiftInfoViewController
+                    vc.personProfileImage = UIImage(data: imageData)
+                    vc.profileGiftsPerson = user
                     self.navigationController?.pushViewController(vc, animated: true)
+                    print("User: ",user)
+                }else{
+                    print("Document does not exist")
                 }
             case .failure(let error):
-                // A `Person` value could not be initialized from the DocumentSnapshot.
-                print("Error dexoding city: \(error)")
+                print("Error decoding user: \(error)")
             }
         }
     }
-    private func appendDocumentToDocumentArray(_ documentPath: String,_ documet: String){
-        switch documentPath{
-        case "Done":
-            doneDocuments.append(documet)
-        case "Undone":
-            undoneDocuments.append(documet)
-        default:
-            break
+    
+    private func downloadPersonProfileImage(selectedUserName: String){
+       
+        personImage.child("\(selectedUserName)/profileImage.jpg").getData(maxSize: 1 * 1024 * 1024) { (data, error) in
+            if let error = error {
+                print("dodnloadPersonProfileImage Error: ",error)
+               
+            }else{
+                guard let data = data else{ return }
+                
+                self.loadTappedPerson(selectedUserName: selectedUserName,imageData: data)
+    
+            }
         }
     }
+    
+//    private func loadFieldsFromDocuments(_ collectionPath: String,_ documentPath: String){
+//        db.collection(collection).document("Gift").collection(collectionPath).document(documentPath).getDocument { (document, error) in
+//            let result = Result {
+//                try document?.data(as: PersonFirebase.self)
+//            }
+//            switch result{
+//            case .success(let person):
+//                if let person = person{
+//                    self.passDocumentsField = PersonFirebase(name: person.name, age: person.age, role: person.role)
+//                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "List") as! GiftInfoViewController
+//                    vc.documentsFields = self.passDocumentsField
+//                    self.navigationController?.pushViewController(vc, animated: true)
+//                }
+//            case .failure(let error):
+//                // A `ProfileGiftsPerson` value could not be initialized from the DocumentSnapshot.
+//                print("Error dexoding city: \(error)")
+//            }
+//        }
+//    }
+    
 }
  

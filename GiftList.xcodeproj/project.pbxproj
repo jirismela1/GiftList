@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		453B623A247D2A5900CACF5F /* SetPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453B6239247D2A5900CACF5F /* SetPhotoViewController.swift */; };
+		45510A05247FA2EA005B1222 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45510A03247FA2EA005B1222 /* TextFieldTableViewCell.swift */; };
+		45510A06247FA2EA005B1222 /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45510A04247FA2EA005B1222 /* TextFieldTableViewCell.xib */; };
+		45510A462480EFCD005B1222 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45510A452480EFCD005B1222 /* DatePickerViewController.swift */; };
 		4552125624765C34007B1196 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4552125524765C34007B1196 /* AppDelegate.swift */; };
 		4552125824765C34007B1196 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4552125724765C34007B1196 /* SceneDelegate.swift */; };
 		4552125A24765C34007B1196 /* LoginSignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4552125924765C34007B1196 /* LoginSignupViewController.swift */; };
@@ -16,15 +19,29 @@
 		4552126224765C36007B1196 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4552126024765C36007B1196 /* LaunchScreen.storyboard */; };
 		4552126C24765F0D007B1196 /* HomeSceenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4552126B24765F0D007B1196 /* HomeSceenViewController.swift */; };
 		4552126E24766608007B1196 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4552126D24766608007B1196 /* GoogleService-Info.plist */; };
+		45728BDB248A5176004DBAD6 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45728BDA248A5176004DBAD6 /* UserProfile.swift */; };
 		458F80942477B52900822050 /* GiftInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458F80932477B52900822050 /* GiftInfoViewController.swift */; };
-		458F80962477CF3400822050 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458F80952477CF3400822050 /* Person.swift */; };
-		45C84BB4247E6B6700146F3A /* AddNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C84BB3247E6B6700146F3A /* AddNewViewController.swift */; };
+		459FE2EF248F7B8E0032F361 /* PersonInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459FE2ED248F7B8E0032F361 /* PersonInfoTableViewCell.swift */; };
+		459FE2F0248F7B8E0032F361 /* PersonInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 459FE2EE248F7B8E0032F361 /* PersonInfoTableViewCell.xib */; };
+		459FE2F9248F7EDC0032F361 /* GiftCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459FE2F7248F7EDC0032F361 /* GiftCollectionViewCell.swift */; };
+		459FE2FA248F7EDC0032F361 /* GiftCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 459FE2F8248F7EDC0032F361 /* GiftCollectionViewCell.xib */; };
+		459FE2FD248F800C0032F361 /* EmptyGiftCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459FE2FB248F800C0032F361 /* EmptyGiftCollectionViewCell.swift */; };
+		459FE2FE248F800C0032F361 /* EmptyGiftCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 459FE2FC248F800C0032F361 /* EmptyGiftCollectionViewCell.xib */; };
+		459FE302248F813F0032F361 /* GIftModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459FE301248F813F0032F361 /* GIftModel.swift */; };
+		459FE304248F85FA0032F361 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459FE303248F85FA0032F361 /* Constants.swift */; };
+		459FE30E24912E0B0032F361 /* ExtraInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459FE30D24912E0B0032F361 /* ExtraInformationViewController.swift */; };
+		459FE3102491341D0032F361 /* GiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459FE30F2491341D0032F361 /* GiftViewController.swift */; };
+		459FE3142493A5030032F361 /* AddNewDetailsToPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459FE3132493A5030032F361 /* AddNewDetailsToPersonViewController.swift */; };
+		45C84BB4247E6B6700146F3A /* AddNewGiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C84BB3247E6B6700146F3A /* AddNewGiftViewController.swift */; };
 		C20938A009498604365CC646 /* Pods_GiftList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56A0B135D93C2BE4B9CD5F5F /* Pods_GiftList.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3EA7DC67C018309FD44C3884 /* Pods-GiftList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiftList.release.xcconfig"; path = "Target Support Files/Pods-GiftList/Pods-GiftList.release.xcconfig"; sourceTree = "<group>"; };
 		453B6239247D2A5900CACF5F /* SetPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPhotoViewController.swift; sourceTree = "<group>"; };
+		45510A03247FA2EA005B1222 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
+		45510A04247FA2EA005B1222 /* TextFieldTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextFieldTableViewCell.xib; sourceTree = "<group>"; };
+		45510A452480EFCD005B1222 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		4552125224765C34007B1196 /* GiftList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiftList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4552125524765C34007B1196 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4552125724765C34007B1196 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,9 +52,20 @@
 		4552126324765C36007B1196 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4552126B24765F0D007B1196 /* HomeSceenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSceenViewController.swift; sourceTree = "<group>"; };
 		4552126D24766608007B1196 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		45728BDA248A5176004DBAD6 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		458F80932477B52900822050 /* GiftInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftInfoViewController.swift; sourceTree = "<group>"; };
-		458F80952477CF3400822050 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
-		45C84BB3247E6B6700146F3A /* AddNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewViewController.swift; sourceTree = "<group>"; };
+		459FE2ED248F7B8E0032F361 /* PersonInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoTableViewCell.swift; sourceTree = "<group>"; };
+		459FE2EE248F7B8E0032F361 /* PersonInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonInfoTableViewCell.xib; sourceTree = "<group>"; };
+		459FE2F7248F7EDC0032F361 /* GiftCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCollectionViewCell.swift; sourceTree = "<group>"; };
+		459FE2F8248F7EDC0032F361 /* GiftCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiftCollectionViewCell.xib; sourceTree = "<group>"; };
+		459FE2FB248F800C0032F361 /* EmptyGiftCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyGiftCollectionViewCell.swift; sourceTree = "<group>"; };
+		459FE2FC248F800C0032F361 /* EmptyGiftCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyGiftCollectionViewCell.xib; sourceTree = "<group>"; };
+		459FE301248F813F0032F361 /* GIftModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIftModel.swift; sourceTree = "<group>"; };
+		459FE303248F85FA0032F361 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		459FE30D24912E0B0032F361 /* ExtraInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraInformationViewController.swift; sourceTree = "<group>"; };
+		459FE30F2491341D0032F361 /* GiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftViewController.swift; sourceTree = "<group>"; };
+		459FE3132493A5030032F361 /* AddNewDetailsToPersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewDetailsToPersonViewController.swift; sourceTree = "<group>"; };
+		45C84BB3247E6B6700146F3A /* AddNewGiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewGiftViewController.swift; sourceTree = "<group>"; };
 		56A0B135D93C2BE4B9CD5F5F /* Pods_GiftList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiftList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4489F33EAF7BF70C48018B3 /* Pods-GiftList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiftList.debug.xcconfig"; path = "Target Support Files/Pods-GiftList/Pods-GiftList.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,9 +135,13 @@
 			children = (
 				4552125924765C34007B1196 /* LoginSignupViewController.swift */,
 				4552126B24765F0D007B1196 /* HomeSceenViewController.swift */,
-				458F80932477B52900822050 /* GiftInfoViewController.swift */,
+				45C84BB3247E6B6700146F3A /* AddNewGiftViewController.swift */,
 				453B6239247D2A5900CACF5F /* SetPhotoViewController.swift */,
-				45C84BB3247E6B6700146F3A /* AddNewViewController.swift */,
+				45510A452480EFCD005B1222 /* DatePickerViewController.swift */,
+				458F80932477B52900822050 /* GiftInfoViewController.swift */,
+				459FE30D24912E0B0032F361 /* ExtraInformationViewController.swift */,
+				459FE3132493A5030032F361 /* AddNewDetailsToPersonViewController.swift */,
+				459FE30F2491341D0032F361 /* GiftViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -117,7 +149,8 @@
 		458F8098247BAD3E00822050 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				458F80952477CF3400822050 /* Person.swift */,
+				45728BDA248A5176004DBAD6 /* UserProfile.swift */,
+				459FE301248F813F0032F361 /* GIftModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -125,6 +158,14 @@
 		458F8099247BAD5700822050 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				45510A03247FA2EA005B1222 /* TextFieldTableViewCell.swift */,
+				45510A04247FA2EA005B1222 /* TextFieldTableViewCell.xib */,
+				459FE2ED248F7B8E0032F361 /* PersonInfoTableViewCell.swift */,
+				459FE2EE248F7B8E0032F361 /* PersonInfoTableViewCell.xib */,
+				459FE2F7248F7EDC0032F361 /* GiftCollectionViewCell.swift */,
+				459FE2F8248F7EDC0032F361 /* GiftCollectionViewCell.xib */,
+				459FE2FB248F800C0032F361 /* EmptyGiftCollectionViewCell.swift */,
+				459FE2FC248F800C0032F361 /* EmptyGiftCollectionViewCell.xib */,
 				4552125B24765C34007B1196 /* Main.storyboard */,
 				4552125E24765C36007B1196 /* Assets.xcassets */,
 				4552126024765C36007B1196 /* LaunchScreen.storyboard */,
@@ -137,6 +178,7 @@
 			children = (
 				4552125524765C34007B1196 /* AppDelegate.swift */,
 				4552125724765C34007B1196 /* SceneDelegate.swift */,
+				459FE303248F85FA0032F361 /* Constants.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -201,8 +243,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				459FE2F0248F7B8E0032F361 /* PersonInfoTableViewCell.xib in Resources */,
 				4552126224765C36007B1196 /* LaunchScreen.storyboard in Resources */,
+				459FE2FE248F800C0032F361 /* EmptyGiftCollectionViewCell.xib in Resources */,
 				4552126E24766608007B1196 /* GoogleService-Info.plist in Resources */,
+				459FE2FA248F7EDC0032F361 /* GiftCollectionViewCell.xib in Resources */,
+				45510A06247FA2EA005B1222 /* TextFieldTableViewCell.xib in Resources */,
 				4552125F24765C36007B1196 /* Assets.xcassets in Resources */,
 				4552125D24765C34007B1196 /* Main.storyboard in Resources */,
 			);
@@ -257,14 +303,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				459FE30E24912E0B0032F361 /* ExtraInformationViewController.swift in Sources */,
 				4552125A24765C34007B1196 /* LoginSignupViewController.swift in Sources */,
 				4552125624765C34007B1196 /* AppDelegate.swift in Sources */,
 				4552126C24765F0D007B1196 /* HomeSceenViewController.swift in Sources */,
+				459FE2FD248F800C0032F361 /* EmptyGiftCollectionViewCell.swift in Sources */,
+				459FE302248F813F0032F361 /* GIftModel.swift in Sources */,
 				458F80942477B52900822050 /* GiftInfoViewController.swift in Sources */,
+				459FE2F9248F7EDC0032F361 /* GiftCollectionViewCell.swift in Sources */,
+				459FE2EF248F7B8E0032F361 /* PersonInfoTableViewCell.swift in Sources */,
 				453B623A247D2A5900CACF5F /* SetPhotoViewController.swift in Sources */,
-				458F80962477CF3400822050 /* Person.swift in Sources */,
 				4552125824765C34007B1196 /* SceneDelegate.swift in Sources */,
-				45C84BB4247E6B6700146F3A /* AddNewViewController.swift in Sources */,
+				45728BDB248A5176004DBAD6 /* UserProfile.swift in Sources */,
+				45510A462480EFCD005B1222 /* DatePickerViewController.swift in Sources */,
+				45C84BB4247E6B6700146F3A /* AddNewGiftViewController.swift in Sources */,
+				459FE3142493A5030032F361 /* AddNewDetailsToPersonViewController.swift in Sources */,
+				45510A05247FA2EA005B1222 /* TextFieldTableViewCell.swift in Sources */,
+				459FE3102491341D0032F361 /* GiftViewController.swift in Sources */,
+				459FE304248F85FA0032F361 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
